@@ -8,6 +8,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 //引入模块的全局的样式
 // import './styles/reset.scss'
 import './styles/index.scss'
+// import './styles/variable.scss'
 //引入路由
 import router from './router'
 
