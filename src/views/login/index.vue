@@ -24,13 +24,14 @@
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
-import { useRouter} from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { getTime } from '../../utils/time'
 //引入用户相关的小仓库
 import useUserStore from '../../store/modules/user'
 let useStore = useUserStore()
-let route = useRouter()
+let router = useRouter()
+let route = useRoute()
 let loading = ref(false)
 let loginForms = ref()
 //收集账号和密码的数据
@@ -44,7 +45,9 @@ const login =  async() => {
   //请求失败->弹出登录失败信息
   try {
     await useStore.userLogin(loginForm)
-    route.push('/')
+    //判断登录的时候，路由路径当中是否有query参数，如果有就往query跳转，没有跳转到首页
+    let redirect: any = route.query.redirect
+    router.push({path: redirect || '/'})
     ElNotification({
       type: 'success',
       message: '欢迎回来',

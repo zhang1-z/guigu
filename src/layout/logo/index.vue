@@ -1,12 +1,15 @@
 <template>
   <div class="logo" v-if="!setting.logoHidden"> 
     <img :src="setting.logo" alt="">
-    <p>{{ setting.title }}</p>
+    <p v-show="!LayOutSettingStore.fold">{{ setting.title }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import setting from '../../setting'
+import useLayOutSettingStore from '../../store/modules/setting'
+let LayOutSettingStore = useLayOutSettingStore()
+
 </script>
 
 <style scoped lang="scss">
