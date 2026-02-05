@@ -17,6 +17,9 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import pinia from './store'
 //引入路由鉴权
 import './permission'
+//引入暗黑模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件
