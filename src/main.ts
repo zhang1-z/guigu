@@ -36,4 +36,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(router)
 // 注册仓库
 app.use(pinia)
+//引入自定义指令文件
+import { isHasButton } from './directive/has'
+isHasButton(app)
 app.mount('#app')

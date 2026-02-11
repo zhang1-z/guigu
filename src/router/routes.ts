@@ -52,6 +52,10 @@ export const constantRoutes = [
       icon: 'Platform'
     }
   },
+]
+
+//对外暴露配置路由(动态路由)
+export const asyncRoutes = [
   {
     path: '/acl',
     component: () => import('../layout/index.vue'),
@@ -66,7 +70,7 @@ export const constantRoutes = [
       {
         path: '/acl/user',
         component: () => import('../views/acl/user/index.vue'),
-        name: 'acl',
+        name: 'User',
         meta: {
           title: '用户管理',
           hidden: false,
@@ -142,6 +146,10 @@ export const constantRoutes = [
       },
     ]
   },
+]
+
+//任意路由
+export const anyRoutes = [
   {
     path: '/:pathMatch(.*)*',
     redirect: '/404',
